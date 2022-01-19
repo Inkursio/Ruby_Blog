@@ -1,0 +1,13 @@
+<h1>Golovna storinka</h1>
+<h1>Vse posti</h1>
+<% @post.each do |post| %>
+
+    <div class="alert alert-light"></div>
+
+    <h3><%= post.title %>></h3>
+    <p><%= post.body %></p>
+    <%= link_to "read", post_path(post), :class => 'btn btn-outline-primary' %>
+
+    </div>
+    <br>
+<% end %>
