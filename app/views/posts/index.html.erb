@@ -1,12 +1,13 @@
-<h1>Golovna storinka</h1>
-<h1>Vse posti</h1>
+<h1>Головна сторинка</h1>
+<h1>Все посты</h1>
 <% @post.each do |post| %>
 
-    <div class="alert alert-light"></div>
+    <div class="alert alert-light">
 
     <h3><%= post.title %>></h3>
     <p><%= post.body %></p>
-    <%= link_to "read", post_path(post), :class => 'btn btn-outline-primary' %>
+    <%= image_tag post.image if post.image.attached? %><br>
+    <%= link_to "Читать", post_path(post), :class => 'btn btn-outline-primary' %>
 
     </div>
     <br>

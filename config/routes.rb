@@ -5,6 +5,11 @@ Rails.application.routes.draw do
 
   get 'about' => 'pages#about', as: 'about'
 
-  resources :posts
+  resources :posts, only: %i[indx new edit create update destroy]
 
+  resources :posts  do
+
+  resources :comments
+
+  end
 end

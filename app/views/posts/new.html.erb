@@ -1,4 +1,4 @@
-<h5>novii post</h5>
+<h5>Новий пост</h5>
 
 <%= form_for :post, url: posts_path do |f| %>
  <% if @post.errors.any? %>
@@ -8,14 +8,24 @@
  <% end %>
 
 <p>
- Name<br>
+ Название поста<br>
   <%= f.text_field (:title) %>
 </p>
 
   <p>
-    Text<br>
+    Техт поста<br>
     <%= f.text_area (:body) %>
   </p>
+
+  <div>
+   <%= f.label :image %><br>
+    <%= f.file_field :image %><br>
+  </div>
+
+  <div>
+    <%= f.label :images %><br>
+    <%= f.file_field :images, multiple:true %><br>
+  </div>
 
   <p>
     <%= f.submit ({:class => 'btn btn-success' })%>

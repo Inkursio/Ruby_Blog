@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def about
-    @heading = 'Storinka pro nas'
+    @heading = 'Сторинка про нас'
   end
 end
