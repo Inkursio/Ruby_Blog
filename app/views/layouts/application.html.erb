@@ -19,11 +19,22 @@
       <span class="fs-4">BlOG</span>
     </a>
 
-    <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-      <span class="p-2 text-dark"><%= link_to "Головна сторинка", home_path %></span>
-      <span class="p-2 text-dark"><%= link_to "Добавить пост", new_post_path %></span>
-      <span class="p-2 text-dark"><%= link_to "Ми", about_path %></span>
+    <nav class="d-inline-flex me-auto mb-2 mb-lg-0">
+      <span class="p-2 text-dark"><%= link_to "Головна сторинка", home_path, class: "nav-link"%></span>
+      <span class="p-2 text-dark"><%= link_to "Добавить пост", new_post_path, class: "nav-link" %></span>
+      <span class="p-2 text-dark"><%= link_to "Ми", about_path, class: "nav-link" %></span>
     </nav>
+
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+
+    <div class="">
+      <%=button_to("Exit", destroy_user_session_path,method: :delete, class:"btn btn-danger") if user_signed_in?%>
+      <%=link_to("Login", new_user_session_path,method: :delete, class:"btn") unless user_signed_in?%>
+    </div>
+
   </div>
 
     <div class="container">

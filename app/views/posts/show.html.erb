@@ -10,7 +10,7 @@
 
 <hr>
 <%= link_to "Редактировать", edit_post_path(@post), :class=>'btn btn-warning' %>
-<%= link_to "Удалить", post_path(@post), data: {method: :delete, confirm:'da?'}, :class=>'btn btn-danger' %>
+<%= button_to "Удалить", post_path(@post),method: :delete, data: {confirm:'da?'}, :class=>'btn btn-danger' %>
 
 <hr>
 

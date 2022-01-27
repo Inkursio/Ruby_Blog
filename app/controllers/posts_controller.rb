@@ -2,13 +2,14 @@ class PostsController < ApplicationController
 
   http_basic_authenticate_with name:"Inkursio", password: "9029"
 
+  before_action :authenticate_user!
 
   def index
     @post = Post.all
   end
 
   private def post_params
-    params.require(:post).permit(:title, :body, :image, images:[])
+    params.require(:post).permit(:title, :body, :image, :user_id, images:[])
   end
 
   def new
@@ -16,6 +17,9 @@ class PostsController < ApplicationController
   end
 
   def create
+
+    params[:post][:user_id] = current_user.id
+
     #{render plain: params[:post].inspect}
 
     @post = Post.new(post_params)
